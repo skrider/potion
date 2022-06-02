@@ -7,5 +7,8 @@
   ],
   "scripts": {
     "clear-sandbox": "bash bin/clear-sandbox.sh"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.2"
   }
 }
