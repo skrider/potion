@@ -9,6 +9,10 @@
     "clear-sandbox": "bash bin/clear-sandbox.sh"
   },
   "devDependencies": {
-    "typescript": "^4.7.2"
+    "typescript": "*"
+  },
+  "resolutions": {
+    "@types/node": "17.0.38",
+    "typescript": "4.7.2"
   }
 }

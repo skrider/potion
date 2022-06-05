@@ -21,6 +21,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:."\
       },\
       {\
+        "name": "engine",\
+        "reference": "workspace:packages/engine"\
+      },\
+      {\
         "name": "types",\
         "reference": "workspace:packages/types"\
       },\
@@ -32,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
+      ["engine", ["workspace:packages/engine"]],\
       ["potion", ["workspace:."]],\
       ["server", ["workspace:packages/ui"]],\
       ["types", ["workspace:packages/types"]]\
@@ -44,6 +49,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["typescript", "patch:typescript@npm%3A4.7.2#~builtin<compat/typescript>::version=4.7.2&hash=7ad353"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@types/node", [\
+        ["npm:17.0.38", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-17.0.38-2d2fadea07-9db1c39d60.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:17.0.38"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["engine", [\
+        ["workspace:packages/engine", {\
+          "packageLocation": "./packages/engine/",\
+          "packageDependencies": [\
+            ["engine", "workspace:packages/engine"],\
+            ["types", "workspace:packages/types"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -71,7 +95,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         ["workspace:packages/types", {\
           "packageLocation": "./packages/types/",\
           "packageDependencies": [\
-            ["types", "workspace:packages/types"]\
+            ["types", "workspace:packages/types"],\
+            ["@types/node", "npm:17.0.38"],\
+            ["typescript", "patch:typescript@npm%3A4.7.2#~builtin<compat/typescript>::version=4.7.2&hash=7ad353"]\
           ],\
           "linkType": "SOFT"\
         }]\
