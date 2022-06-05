@@ -9,6 +9,7 @@
     "clear-sandbox": "bash bin/clear-sandbox.sh"
   },
   "devDependencies": {
+    "prettier": "^2.6.2",
     "typescript": "*"
   },
   "resolutions": {
