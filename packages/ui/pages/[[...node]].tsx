@@ -1,14 +1,18 @@
 import type { GetServerSideProps, NextPage } from "next";
+import { AppNode } from "types";
 
-const Node: NextPage = () => {
-  return <div>Hello</div>;
+interface NodePageProps {
+  name: string;
+}
+
+const NodePage: NextPage<NodePageProps> = ({ name }) => {
+  return <div>{name}</div>;
 };
 
-export const getServerSideProps: GetServerSideProps<any> = async ({
-  req,
-  res,
+export const getServerSideProps: GetServerSideProps<NodePageProps> = async ({
+  resolvedUrl,
 }) => {
-  return { props: {} };
+  return { props: { name: resolvedUrl } };
 };
 
-export default Node;
+export default NodePage;
