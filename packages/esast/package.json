@@ -1,8 +1,17 @@
 {
   "name": "esast",
   "packageManager": "yarn@3.2.1",
+  "main": "src/index.ts",
+  "scripts": {
+    "ast": "ts-node --transpile-only src/index.ts"
+  },
   "dependencies": {
     "esast": "^0.1.0",
-    "estree-util-to-js": "^1.0.0"
+    "estree-util-to-js": "^1.0.0",
+    "ts-node": "^10.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.41",
+    "typescript": "*"
   }
 }
