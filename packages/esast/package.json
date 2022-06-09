@@ -2,13 +2,16 @@
   "name": "esast",
   "packageManager": "yarn@3.2.1",
   "main": "src/index.ts",
+  "type": "module",
   "scripts": {
-    "ast": "ts-node --transpile-only src/index.ts"
+    "build": "tsc --outDir build",
+    "ast": "yarn build && node build/index.js"
   },
   "dependencies": {
     "remark": "^14.0.2",
     "remark-mdx": "^2.1.1",
-    "ts-node": "^10.8.1"
+    "ts-node": "^10.8.1",
+    "unified": "^10.1.2"
   },
   "devDependencies": {
     "@types/node": "*",
